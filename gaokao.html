@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>高考加油！</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            font-family: "Microsoft YaHei", sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #d23669;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        #message {
+            font-size: 24px;
+            margin: 30px;
+            color: #333;
+        }
+        #animation {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff4757;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎓 <span id="name">XXX</span>同学 🎓</h1>
+    <div id="message">乾坤未定，你我皆是黑马！</div>
+    <div id="animation">高考必胜！</div>
+
+    <script>
+        // 从网址读取名字（如：xxx.html?name=张三）
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || "亲爱的";
+        document.getElementById("name").textContent = name;
+
+        // 随机鼓励语
+        const messages = [
+            "笔下生花，圆梦今夏！",
+            "十年磨一剑，今朝试锋芒！",
+            "全力以赴，青春无悔！"
+        ];
+        document.getElementById("message").textContent = messages[Math.floor(Math.random() * messages.length)];
+    </script>
+</body>
+</html>
